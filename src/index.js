@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import perfumeRoutes from "./routes/perfumeRoutes.js";
 import brandRoutes from "./routes/brandRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
+import reviewRoutes from "./routes/reviewRoutes.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.get("/", (req, res) => res.json({ ok: true, msg: "Scentify API" }));
 app.use("/api/perfumes", perfumeRoutes);
 app.use("/api/brands", brandRoutes);
 app.use("/api/categories", categoryRoutes);
+app.use("/api/reviews", reviewRoutes);
 
 // basic error handler
 app.use((err, req, res, next) => {
