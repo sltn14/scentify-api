@@ -1,7 +1,7 @@
-import db from "../config/db.js";
+import { supabase } from "../config/supabaseClient.js";
 
 export async function getReviewsByPerfume(perfume_id) {
-    const { data, error } = await db
+    const { data, error } = await supabase
         .from("reviews")
         .select("*")
         .eq("perfume_id", perfume_id)
@@ -12,7 +12,7 @@ export async function getReviewsByPerfume(perfume_id) {
 }
 
 export async function addReview({ perfume_id, username, rating, comment }) {
-    const { data, error } = await db
+    const { data, error } = await supabase
         .from("reviews")
         .insert([{ perfume_id, username, rating, comment }])
         .select()
